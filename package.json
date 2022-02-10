@@ -1,0 +1,13 @@
+{
+	"scripts": {
+		"start": "nodemon index.js"
+	},
+	"devDependencies": {
+		"dotenv": "^16.0.0",
+		"nodemon": "^2.0.15"
+	},
+	"dependencies": {
+		"axios": "^0.25.0",
+		"request": "^2.88.2"
+	}
+}
