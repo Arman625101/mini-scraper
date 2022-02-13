@@ -8,12 +8,17 @@
     </head>
     <body>
         <div id="container">
-            <input id="url"  type="text" placeholder="URL" />
-            <input id="className"  type="text" placeholder="class name" />
+            <form id="form">
+                <input name="url" id="url" value="https://www.tert.am/am/" type="url" placeholder="URL" />
+                <input name="element" id="element" value="list__item" type="text" placeholder="Element class" />
+                <input name="link" id="link" value="list__link" type="text" placeholder="Link class" />
+                <input name="title" id="title" value="list__title" type="text" placeholder="Title class" />
+                <input name="date" id="date" value="list__date" type="text" placeholder="Date class" />
+                <input name="limit" id="limit" value="10" type="number" placeholder="Limit of articles" />
+            </form>
+
             <button id="scrap">Scrap</button>
-            <div class="articles-container" id="articles-container">
-                <ul id="articles-list"></ul>
-            </div>
+            <ul id="articles"></ul>
         </div>
     </body>
 </html>

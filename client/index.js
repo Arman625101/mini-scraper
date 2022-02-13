@@ -1,43 +1,45 @@
 import styles from './style.css';
 
-const urlInput = document.getElementById('url');
-const classNameInput = document.getElementById('className');
+const form = document.getElementById('form');
 const btn = document.getElementById('scrap');
 
 btn.addEventListener('click', () => {
+    const formData = new FormData(form);
+
     const body = {
-        url: urlInput.value,
-        className: classNameInput.value,
-        limit: 10
+        url: formData.get('url'),
+        element: `.${formData.get('element')}`,
+        link: `.${formData.get('link')}`,
+        title: `.${formData.get('title')}`,
+        date: `.${formData.get('date')}`,
+        limit: formData.get('limit')
     };
     fetch('http://localhost:6969/', {
         method: 'POST',
         body: JSON.stringify(body)
     })
         .then(async (res) => {
-            const text = await res.text();
-            const temp = document.createElement('div');
-            temp.id = 'content';
-            temp.innerHTML = text;
+            const articles = await res.json();
 
-            const articlesList = document.getElementById('articles-list');
-            const articles = temp.getElementsByClassName(classNameInput.value);
-
-            Array.from(articles)
-                .slice(0, 10)
-                .forEach((article) => {
-                    const li = document.createElement('li');
-                    const title = document.createElement('h1');
-                    const date = document.createElement('p');
-                    const link = article.getElementsByClassName('list__link')[0]?.getAttribute('href');
-
-                    li.classList.add('article-item');
-                    title.innerText = article.getElementsByClassName('list__title')[0]?.textContent;
-                    date.innerText = article.getElementsByClassName('list__date')[0]?.textContent;
-
-                    li.append(title, date);
-                    articlesList.append(li);
-                });
+            const articlesList = document.getElementById('articles');
+            articlesList.innerHTML = '';
+            articles.forEach((article) => {
+                articlesList.append(generateArticle(article));
+            });
         })
         .catch((err) => console.log);
 });
+
+function generateArticle({ date, title, url }) {
+    const li = document.createElement('li');
+    const a = document.createElement('a');
+    a.href = url;
+    const titleElem = document.createElement('h1');
+    titleElem.textContent = title;
+    const dateElem = document.createElement('p');
+    dateElem.textContent = date;
+    a.append(titleElem, dateElem);
+    li.append(a);
+
+    return li;
+}

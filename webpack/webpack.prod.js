@@ -8,5 +8,4 @@ export default merge(commonConfig, {
         path: path.resolve('dist'),
         filename: '[name].[contenthash].bundle.js'
     }
-    // plugins: [new CleanWebpackPlugin()]
 });
