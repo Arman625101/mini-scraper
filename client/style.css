@@ -1,0 +1,22 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.articles-container {
+}
+.articles-container ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+.articles-container ul li {
+    padding: 15px;
+    margin-bottom: 15px;
+    color: #000;
+}
+.articles-container ul li h1 {
+    font-size: 20px;
+}
+.articles-container ul li p {
+    font-size: 14px;
+    font-weight: bold;
+}
