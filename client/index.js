@@ -3,7 +3,8 @@ import styles from './style.css';
 const form = document.getElementById('form');
 const btn = document.getElementById('scrap');
 
-btn.addEventListener('click', () => {
+btn.addEventListener('click', (event) => {
+    event.preventDefault()
     const formData = new FormData(form);
 
     const body = {
