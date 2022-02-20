@@ -4,15 +4,14 @@ const form = document.getElementById('form');
 const btn = document.getElementById('scrap');
 
 btn.addEventListener('click', (event) => {
-    event.preventDefault()
+    event.preventDefault();
     const formData = new FormData(form);
 
     const body = {
         url: formData.get('url'),
-        element: `.${formData.get('element')}`,
-        link: `.${formData.get('link')}`,
-        title: `.${formData.get('title')}`,
-        date: `.${formData.get('date')}`,
+        title: formData.get('title'),
+        date: formData.get('date'),
+        content: formData.get('content'),
         limit: formData.get('limit')
     };
     fetch('http://localhost:6969/', {
@@ -21,7 +20,7 @@ btn.addEventListener('click', (event) => {
     })
         .then(async (res) => {
             const articles = await res.json();
-
+            console.log(articles);
             const articlesList = document.getElementById('articles');
             articlesList.innerHTML = '';
             articles.forEach((article) => {
@@ -34,7 +33,7 @@ btn.addEventListener('click', (event) => {
 function generateArticle({ date, title, url }) {
     const li = document.createElement('li');
     const a = document.createElement('a');
-    a.href = url;
+    // a.href = url;
     const titleElem = document.createElement('h1');
     titleElem.textContent = title;
     const dateElem = document.createElement('p');

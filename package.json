@@ -1,8 +1,8 @@
 {
     "main": "client/index.js",
     "scripts": {
-        "start:server": "nodemon server/index.js",
-        "start:client": "webpack-dev-server --config webpack/webpack.dev.js --open",
+        "server": "nodemon server/index.js",
+        "client": "webpack-dev-server --config webpack/webpack.dev.js --open",
         "build": "webpack --config webpack/webpack.prod.js"
     },
     "devDependencies": {

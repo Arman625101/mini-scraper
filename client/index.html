@@ -9,12 +9,14 @@
     <body>
         <div id="container">
             <form id="form">
-                <input name="url" id="url" value="https://www.tert.am/am/" type="url" placeholder="URL" />
-                <input name="element" id="element" value="list__item" type="text" placeholder="Element class" />
-                <input name="link" id="link" value="list__link" type="text" placeholder="Link class" />
-                <input name="title" id="title" value="list__title" type="text" placeholder="Title class" />
-                <input name="date" id="date" value="list__date" type="text" placeholder="Date class" />
-                <input name="limit" id="limit" value="10" type="number" placeholder="Limit of articles" />
+                <input name="url" id="url" value="https://www.tert.am/am/news/rss" type="url" placeholder="URL" />
+                <!-- <input name="element" id="element" value="list__item" type="text" placeholder="Element class" /> -->
+                <!-- <input name="link" id="link" value="list__link" type="text" placeholder="Link class" /> -->
+
+                <input name="title" id="title" value=".inner-content__article-title" type="text" placeholder="title" />
+                <input name="content" id="content" value=".news-content-container>p" type="text" placeholder="content" />
+                <input name="date" id="date" value=".inner-content__article-date" type="text" placeholder="date" />
+                <!-- <input name="limit" id="limit" value="10" type="number" placeholder="Limit of articles" /> -->
                 <button id="scrap">Scrape</button>
             </form>
 
